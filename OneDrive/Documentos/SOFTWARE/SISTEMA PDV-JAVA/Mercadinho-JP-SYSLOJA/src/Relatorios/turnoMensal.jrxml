@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="turnoMensal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bf062cd4-1dc6-4239-8c7f-13a1c6bcec26">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="5"/>
+	<property name="ireport.y" value="0"/>
+	<style name="FONTE" fontName="Apple Garamond" fontSize="10"/>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_abrir_turno2.`pk_id_abrir_turno` AS tbl_abrir_turno2_pk_id_abrir_turno,
+     tbl_abrir_turno2.`fk_turno` AS tbl_abrir_turno2_fk_turno,
+     tbl_abrir_turno2.`fk_usuario` AS tbl_abrir_turno2_fk_usuario,
+     tbl_abrir_turno2.`nome` AS tbl_abrir_turno2_nome,
+     tbl_abrir_turno2.`data` AS tbl_abrir_turno2_data,
+     tbl_abrir_turno2.`hora` AS tbl_abrir_turno2_hora,
+     tbl_abrir_turno2.`valor` AS tbl_abrir_turno2_valor,
+     tbl_abrir_turno2.`data_fechar` AS tbl_abrir_turno2_data_fechar,
+     tbl_abrir_turno2.`hora_fechar` AS tbl_abrir_turno2_hora_fechar,
+     tbl_abrir_turno2.`data_relatorio` AS tbl_abrir_turno2_data_relatorio,
+     tbl_abrir_turno2.`data_anual` AS tbl_abrir_turno2_data_anual
+FROM
+     `tbl_abrir_turno2` tbl_abrir_turno2]]>
+	</queryString>
+	<field name="tbl_abrir_turno2_pk_id_abrir_turno" class="java.lang.Integer"/>
+	<field name="tbl_abrir_turno2_fk_turno" class="java.lang.Integer"/>
+	<field name="tbl_abrir_turno2_fk_usuario" class="java.math.BigInteger"/>
+	<field name="tbl_abrir_turno2_nome" class="java.lang.String"/>
+	<field name="tbl_abrir_turno2_data" class="java.lang.String"/>
+	<field name="tbl_abrir_turno2_hora" class="java.lang.String"/>
+	<field name="tbl_abrir_turno2_valor" class="java.lang.Double"/>
+	<field name="tbl_abrir_turno2_data_fechar" class="java.lang.String"/>
+	<field name="tbl_abrir_turno2_hora_fechar" class="java.lang.String"/>
+	<field name="tbl_abrir_turno2_data_relatorio" class="java.lang.String"/>
+	<field name="tbl_abrir_turno2_data_anual" class="java.lang.String"/>
+	<variable name="tbl_abrir_turno2_fk_turno_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{tbl_abrir_turno2_fk_turno}]]></variableExpression>
+	</variable>
+	<variable name="SOMA" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{tbl_abrir_turno2_valor}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<title>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement style="FONTE" x="0" y="0" width="42" height="14" uuid="a08060df-fb6a-4634-944a-e510425f4e7b"/>
+				<text><![CDATA[Emissor:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FONTE" x="303" y="56" width="91" height="13" uuid="c9505baf-4c8f-4288-aea9-5c6c892fa546"/>
+				<textFieldExpression><![CDATA[$F{tbl_abrir_turno2_data_relatorio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="14" width="555" height="14" uuid="1e81ff1e-a8c3-4725-9b97-7f7b9c74a0ee"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FONTE" x="3" y="28" width="517" height="14" uuid="327f0cd1-e8f3-45fb-89e3-9237feb09a02"/>
+				<text><![CDATA[Sistema de Venda com Controle de Estoque - vs 2019.1 -/ update 01.07.2019a / liberado para 26.635.415/0001-25]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FONTE" x="159" y="42" width="377" height="14" uuid="1130b2a1-d9bf-4cec-b2dd-08d5e329f340"/>
+				<text><![CDATA[RESUMO DO LIVRO CAIXA POR HISTORICO-ANALITICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FONTE" x="179" y="56" width="124" height="13" uuid="455d8abf-bf02-4ff5-b52f-066b52cd6ac5"/>
+				<text><![CDATA[Periodo do movimento: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="67" width="555" height="14" uuid="ce859d5d-7a97-4749-bdd9-1b878ffdb877"/>
+				<text><![CDATA[--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FONTE" x="2" y="81" width="162" height="14" uuid="18de6785-64fd-4dfe-892f-f570967fd9f8"/>
+				<text><![CDATA[Codigo e Historico  -------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FONTE" x="176" y="81" width="198" height="14" uuid="71e7c771-5c3b-4725-bb1d-3cebd09d560e"/>
+				<text><![CDATA[Complemento  ----------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FONTE" x="398" y="81" width="72" height="14" uuid="7318f8b5-7fc6-4845-81ee-e69d60d8f864"/>
+				<text><![CDATA[T        Dt. Movto.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FONTE" x="494" y="81" width="59" height="14" uuid="eb02bb0d-efab-4202-a271-c6337f20cdfd"/>
+				<text><![CDATA[Vr. Movto.]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FONTE" x="42" y="0" width="100" height="12" uuid="b9c3488d-de97-4fcf-8dfa-82fcef680269"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="FONTE" x="483" y="0" width="36" height="12" uuid="54e510e5-5c4e-474a-9c83-724279c9f538"/>
+				<text><![CDATA[Folha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FONTE" x="524" y="0" width="29" height="12" uuid="77f2002c-1c2e-4918-af7b-906549d99564"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="13" uuid="2b6927bc-5141-4ca1-a5b9-abb0279fcbb7"/>
+				<text><![CDATA[=============================================================================================================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FONTE" x="3" y="13" width="274" height="13" uuid="a0dbd0a4-7307-42aa-9d7b-d03b7b40743d"/>
+				<text><![CDATA[FECHAMENTO DE TURNO DE VENDAS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement style="FONTE" x="254" y="0" width="52" height="12" uuid="360feeca-e7db-43ae-9a7d-4f50dcc43a56"/>
+				<textFieldExpression><![CDATA[$F{tbl_abrir_turno2_fk_turno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="FONTE" x="175" y="0" width="79" height="13" uuid="c1b0a0ef-a46f-4f01-849e-df0eb43ddeed"/>
+				<text><![CDATA[SALDO TURNO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="FONTE" x="398" y="1" width="13" height="12" uuid="1678ae91-7b1a-4a24-a7fe-0298501301c1"/>
+				<text><![CDATA[R]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FONTE" x="331" y="0" width="43" height="12" uuid="e776e1ad-618f-45db-9790-9b80f8ec4901"/>
+				<textFieldExpression><![CDATA[$F{tbl_abrir_turno2_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="FONTE" x="420" y="1" width="63" height="12" uuid="ec6debb7-259f-4d29-aeb6-be214552ead9"/>
+				<textFieldExpression><![CDATA[$F{tbl_abrir_turno2_data_fechar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="FONTE" x="494" y="0" width="100" height="13" uuid="b07f778b-6bbb-46e8-887f-3dc15be960ba"/>
+				<textFieldExpression><![CDATA[$F{tbl_abrir_turno2_valor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="FONTE" x="309" y="0" width="19" height="12" uuid="b3766738-9dd9-4eb6-9cd8-e8e22ae39db8"/>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="18" width="555" height="14" uuid="27ff58df-0521-48d2-97b0-cf3a7c3c6fc9"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="FONTE" x="480" y="0" width="72" height="12" uuid="dc7d680d-93ad-4ef4-b7f0-04f2fa15dccb"/>
+				<textFieldExpression><![CDATA[$V{SOMA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="FONTE" x="370" y="0" width="100" height="12" uuid="903f3de1-e53f-451e-b16e-b47228833f7a"/>
+				<text><![CDATA[VALOR TOTAL DESTE MES:]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

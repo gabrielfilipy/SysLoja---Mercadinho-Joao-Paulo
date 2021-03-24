@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioMensal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ca389e62-13c0-4454-afcb-92b0d0b9b9d9">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" fontName="Arial Black" fontSize="36"/>
+	<style name="ESTILO 2" mode="Opaque">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Transparent" forecolor="#FFFFFF" backcolor="#FFFFCC"/>
+		</conditionalStyle>
+	</style>
+	<style name="maquinaEscrever" isBlankWhenNull="true" fontName="Apple Garamond" fontSize="10" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_abrir_turno2.`pk_id_abrir_turno` AS tbl_abrir_turno2_pk_id_abrir_turno,
+     tbl_abrir_turno2.`fk_turno` AS tbl_abrir_turno2_fk_turno,
+     tbl_abrir_turno2.`fk_usuario` AS tbl_abrir_turno2_fk_usuario,
+     tbl_abrir_turno2.`nome` AS tbl_abrir_turno2_nome,
+     tbl_abrir_turno2.`data` AS tbl_abrir_turno2_data,
+     tbl_abrir_turno2.`hora` AS tbl_abrir_turno2_hora,
+     tbl_abrir_turno2.`valor` AS tbl_abrir_turno2_valor,
+     tbl_abrir_turno2.`data_fechar` AS tbl_abrir_turno2_data_fechar,
+     tbl_abrir_turno2.`hora_fechar` AS tbl_abrir_turno2_hora_fechar
+FROM
+     `tbl_abrir_turno2` tbl_abrir_turno2]]>
+	</queryString>
+	<field name="tbl_abrir_turno2_pk_id_abrir_turno" class="java.lang.Integer"/>
+	<field name="tbl_abrir_turno2_fk_turno" class="java.lang.Integer"/>
+	<field name="tbl_abrir_turno2_fk_usuario" class="java.math.BigInteger"/>
+	<field name="tbl_abrir_turno2_nome" class="java.lang.String"/>
+	<field name="tbl_abrir_turno2_data" class="java.lang.String"/>
+	<field name="tbl_abrir_turno2_hora" class="java.lang.String"/>
+	<field name="tbl_abrir_turno2_valor" class="java.lang.Double"/>
+	<field name="tbl_abrir_turno2_data_fechar" class="java.lang.String"/>
+	<field name="tbl_abrir_turno2_hora_fechar" class="java.lang.String"/>
+	<variable name="SOMA" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="conta" class="java.lang.Long" calculation="Count">
+		<variableExpression><![CDATA[$F{tbl_abrir_turno2_pk_id_abrir_turno}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="13" width="554" height="13" uuid="c8c14db2-15f0-41d1-a5bc-9518e427ac5b"/>
+				<text><![CDATA[========================================================================================================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="maquinaEscrever" x="1" y="0" width="66" height="12" uuid="9003be96-9311-4975-98d4-b72ee9ee6cb6"/>
+				<textElement>
+					<font fontName="Apple Garamond"/>
+				</textElement>
+				<text><![CDATA[Emissao:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="59" y="0" width="100" height="13" uuid="70e7347a-8b9a-4ad3-8aa9-f1a9982f3073"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="73">
+			<staticText>
+				<reportElement style="maquinaEscrever" x="218" y="0" width="112" height="12" uuid="452ee024-8aa5-44c0-b18a-2c1f5879100d"/>
+				<text><![CDATA[Supermercado 24 horas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="maquinaEscrever" x="67" y="13" width="420" height="16" uuid="d350bd91-11b3-4399-a7fa-186247020068"/>
+				<text><![CDATA[Sistema de Venda e Controle de Estoque - vs 2019.01 / update 01.06.2019a / (uso liberado para 26.635.415/0001-25)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="maquinaEscrever" x="159" y="29" width="206" height="16" uuid="22633ee9-05d4-41b4-ab2d-f5113cb62146"/>
+				<text><![CDATA[RESUMO DO LIVRO CAIXA POR HISTORICOS-ANALITICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="37" width="554" height="13" uuid="a464035e-94d3-49cb-b4b0-de16e6b9a49d"/>
+				<text><![CDATA[------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="maquinaEscrever" x="2" y="47" width="216" height="12" uuid="758d49f4-df98-402b-bc04-633c734daa27"/>
+				<text><![CDATA[Codigo e historico -------------------------------------------------------------*]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="59" width="553" height="14" uuid="a1e621c5-1f65-45f0-89bd-4a1b52e696b8"/>
+				<text><![CDATA[====================================================================================================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="maquinaEscrever" x="225" y="47" width="191" height="12" uuid="85b0e8af-bb8c-47c2-a8de-8474dea9ec94"/>
+				<text><![CDATA[Complemento --------------------------------------------------*]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="maquinaEscrever" x="405" y="47" width="50" height="12" uuid="2e6e114f-93e6-44af-b605-f924a3b69b58"/>
+				<text><![CDATA[T Dt. Movto.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="maquinaEscrever" x="488" y="48" width="50" height="12" uuid="437b7a3c-f497-41f9-9425-3e7ad10cf325"/>
+				<text><![CDATA[Vr. Movto.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement style="maquinaEscrever" x="59" y="1" width="144" height="13" uuid="fc0afbd7-fac3-440c-914c-64709ab66dd6"/>
+				<text><![CDATA[FECHAMENTO DE TURNO DE VENDAS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="4" y="0" width="55" height="14" uuid="7f972ded-158c-403c-9ef6-1e6580bcc45d"/>
+				<textFieldExpression><![CDATA[$V{conta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement style="maquinaEscrever" x="228" y="0" width="59" height="12" uuid="529b0bff-d271-40dc-9a07-0fbece11fbd8"/>
+				<text><![CDATA[SALDO TURNO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="maquinaEscrever" x="332" y="0" width="13" height="12" uuid="997adbe9-c237-440f-94ae-e03b26f7d9a9"/>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="maquinaEscrever" x="355" y="0" width="48" height="12" uuid="e2b0f01c-b227-4dac-b154-dbf091668a6b"/>
+				<textFieldExpression><![CDATA[$F{tbl_abrir_turno2_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="maquinaEscrever" x="287" y="0" width="43" height="12" uuid="45e550b3-dad2-46ca-a3d2-146971949f46"/>
+				<textFieldExpression><![CDATA[$F{tbl_abrir_turno2_fk_turno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="maquinaEscrever" x="404" y="0" width="13" height="12" uuid="2e3da9a6-d523-48b0-9322-7e7a3f54be7a"/>
+				<text><![CDATA[R]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="maquinaEscrever" x="490" y="1" width="51" height="12" uuid="36d90004-240b-44a4-bd87-32e3f749e02f"/>
+				<textFieldExpression><![CDATA[$F{tbl_abrir_turno2_valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="maquinaEscrever" x="417" y="0" width="38" height="12" uuid="f930db50-ab0c-4269-a670-b1511d9ef20e"/>
+				<textFieldExpression><![CDATA[$F{tbl_abrir_turno2_data_fechar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="1" width="553" height="13" uuid="b841ae56-a191-45bb-9a10-1c0dbd02dca0"/>
+				<text><![CDATA[===========================================================================================================]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

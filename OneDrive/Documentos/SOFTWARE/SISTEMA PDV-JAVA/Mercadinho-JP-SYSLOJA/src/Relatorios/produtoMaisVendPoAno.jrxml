@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="produtoMaisVendPorMes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="164b34c2-6ea1-4143-a4ee-07f67476a0a0">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" fontName="Apple Garamond" fontSize="6"/>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_venda_produto2.`quantidade` AS tbl_venda_produto2_quantidade,
+     tbl_venda_produto2.`nome_produto` AS tbl_venda_produto2_nome_produto,
+     tbl_venda_produto2.`ano` AS tbl_venda_produto2_ano,
+     tbl_venda_produto2.`mes` AS tbl_venda_produto2_mes,
+     tbl_venda_produto2.`fk_produto` AS tbl_venda_produto2_fk_produto
+FROM
+     `tbl_venda_produto2` tbl_venda_produto2]]>
+	</queryString>
+	<field name="tbl_venda_produto2_quantidade" class="java.lang.Integer"/>
+	<field name="tbl_venda_produto2_nome_produto" class="java.lang.String"/>
+	<field name="tbl_venda_produto2_ano" class="java.lang.String"/>
+	<field name="tbl_venda_produto2_mes" class="java.lang.String"/>
+	<field name="tbl_venda_produto2_fk_produto" class="java.math.BigInteger"/>
+	<variable name="tbl_venda_produto2_mes_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{tbl_venda_produto2_mes}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement style="style1" x="443" y="3" width="56" height="20" uuid="cf82903b-825c-4546-9cee-ccc4fa70b103"/>
+				<text><![CDATA[Pagina:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="202" y="38" width="317" height="13" uuid="e0f69452-e5af-4ea1-a49e-35b42eb1d7de"/>
+				<text><![CDATA[PRODUTOS MAIS VENDIDOS POR ANO NA CATEGORIA (DINHEIRO)]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="54" y="3" width="100" height="20" uuid="ce571212-0e55-423f-8c93-f5b6f837854f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="-1" y="3" width="55" height="20" uuid="ae16cb5b-efd3-43f9-9d8e-bf6dcb99f91d"/>
+				<text><![CDATA[Emissor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="51" width="555" height="14" uuid="cb7d29c8-e414-4d1c-9612-934e8c916f3e"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="24" width="555" height="14" uuid="69776ada-ec8e-4e85-8d9c-07c3e442a42e"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="500" y="3" width="51" height="20" uuid="b0416683-979b-427b-b8d0-1b27b3e22cb3"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="128" y="0" width="53" height="15" backcolor="#FFFFCC" uuid="e3486171-2d2d-4abc-abf3-652be9fba2e1"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[POSICAO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="0" width="54" height="13" uuid="1e8b75f2-c5bd-445d-9b87-750b7de685d6"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[DATA:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="9" splitType="Stretch">
+			<textField>
+				<reportElement style="style1" x="202" y="1" width="51" height="8" uuid="061dd51c-8aba-4af3-9c23-e3ef783dd37c"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_produto2_fk_produto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="181" y="1" width="21" height="8" uuid="2a2af40c-2fef-4c3f-9bd8-099ecdcfeb52"/>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="308" y="1" width="112" height="8" uuid="4e7f043d-be0a-4bf4-83ce-c5c01d8e8e15"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_produto2_nome_produto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="253" y="1" width="55" height="8" uuid="a77696ae-9d00-43e7-81a8-0a994c08b699"/>
+				<text><![CDATA[PRODUTO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="493" y="1" width="58" height="8" uuid="77e6dff0-9b26-4d68-9879-2853795cf8b8"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_produto2_quantidade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="421" y="1" width="72" height="8" uuid="ca00074c-8dd2-40e3-a95c-7cec5779ea7b"/>
+				<text><![CDATA[QUANTIDADE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" mode="Opaque" x="127" y="0" width="54" height="8" backcolor="#FFFFCC" uuid="48e52b8b-b5a8-41f4-8507-60ed74e27033"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style1" x="71" y="0" width="54" height="8" uuid="2262cfab-81ee-4167-af0c-af8170e6037b"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_produto2_ano}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="15">
+			<staticText>
+				<reportElement x="2" y="0" width="554" height="14" uuid="f6841a85-6c2a-4071-ad8b-f9323e57fd07"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

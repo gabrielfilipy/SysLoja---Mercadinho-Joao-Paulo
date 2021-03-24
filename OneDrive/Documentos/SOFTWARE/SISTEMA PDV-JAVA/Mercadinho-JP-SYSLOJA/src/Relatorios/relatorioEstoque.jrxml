@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioEstoque" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ca77a9c2-12a2-4ba6-95e7-cd93035fe021">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" fontName="Arial" fontSize="36" isBold="true"/>
+	<style name="style2">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#FFFF99"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_estoque.`pk_id_estoque` AS tbl_estoque_pk_id_estoque,
+     tbl_estoque.`nome` AS tbl_estoque_nome,
+     tbl_estoque.`departamento` AS tbl_estoque_departamento,
+     tbl_estoque.`validade` AS tbl_estoque_validade,
+     tbl_estoque.`estoque` AS tbl_estoque_estoque,
+     tbl_estoque.`cod_barras` AS tbl_estoque_cod_barras,
+     tbl_estoque.`fornecedor` AS tbl_estoque_fornecedor,
+     tbl_estoque.`fk_usuario` AS tbl_estoque_fk_usuario,
+     tbl_estoque.`data` AS tbl_estoque_data,
+     tbl_estoque.`hora` AS tbl_estoque_hora,
+     tbl_estoque.`usuario_nome` AS tbl_estoque_usuario_nome
+FROM
+     `tbl_estoque` tbl_estoque]]>
+	</queryString>
+	<field name="tbl_estoque_pk_id_estoque" class="java.math.BigInteger"/>
+	<field name="tbl_estoque_nome" class="java.lang.String"/>
+	<field name="tbl_estoque_departamento" class="java.lang.String"/>
+	<field name="tbl_estoque_validade" class="java.lang.String"/>
+	<field name="tbl_estoque_estoque" class="java.lang.Integer"/>
+	<field name="tbl_estoque_cod_barras" class="java.lang.String"/>
+	<field name="tbl_estoque_fornecedor" class="java.lang.String"/>
+	<field name="tbl_estoque_fk_usuario" class="java.math.BigInteger"/>
+	<field name="tbl_estoque_data" class="java.lang.String"/>
+	<field name="tbl_estoque_hora" class="java.lang.String"/>
+	<field name="tbl_estoque_usuario_nome" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement style="style1" x="84" y="22" width="436" height="46" uuid="4bcfc4e9-07a5-4928-b51c-1f4efd81b0bb"/>
+				<text><![CDATA[RELATÓRIO/ESTOQUE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="79" width="555" height="1" uuid="710b5d21-5c7c-4024-add8-091c03415983"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-1" y="1" width="555" height="20" backcolor="#CCCCCC" uuid="6345418d-5581-4f1b-92bd-5037b5545f14"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="49" height="15" uuid="419d0af2-b834-4079-a9ee-98e18a6cf33a"/>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="49" y="1" width="180" height="20" uuid="e3718ad4-80af-49b7-8c72-4964e9e0a42d"/>
+				<text><![CDATA[PRODUTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="245" y="1" width="84" height="20" uuid="807960e4-d0d5-491d-b5f0-e1efb0e4d95a"/>
+				<text><![CDATA[QUANTIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="1" width="100" height="20" uuid="30ba7821-d666-41d6-81bc-d6330ebf5806"/>
+				<text><![CDATA[DEPARTAMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="1" width="123" height="20" uuid="447a16cb-3a48-4753-a65d-0221ba91cdcb"/>
+				<text><![CDATA[FORNECEDOR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<frame>
+				<reportElement style="style2" mode="Opaque" x="0" y="0" width="555" height="15" uuid="bdd44d67-8702-4402-ba2a-c07bb9bbf3b7"/>
+			</frame>
+			<textField>
+				<reportElement x="0" y="0" width="49" height="15" uuid="00fa6192-314a-4c5c-a15b-887b7b73c2e3"/>
+				<textFieldExpression><![CDATA[$F{tbl_estoque_pk_id_estoque}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="49" y="1" width="180" height="15" uuid="f5e88847-df90-47b7-a4a0-3be56fbb30dd"/>
+				<textFieldExpression><![CDATA[$F{tbl_estoque_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="245" y="1" width="71" height="15" uuid="9576c6d7-e395-4c7b-bbab-ef733b93998d"/>
+				<textFieldExpression><![CDATA[$F{tbl_estoque_estoque}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="100" height="15" uuid="2b6a7ac2-e93b-45af-80ee-452d1905c4c2"/>
+				<textFieldExpression><![CDATA[$F{tbl_estoque_departamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="1" width="123" height="15" uuid="7f017936-b36f-4626-8c61-c059cd19332c"/>
+				<textFieldExpression><![CDATA[$F{tbl_estoque_fornecedor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="554" height="20" backcolor="#CCCCCC" uuid="41399e2a-fa22-492c-9a0b-5e88ca09b22c"/>
+			</rectangle>
+			<textField>
+				<reportElement x="520" y="3" width="34" height="15" uuid="c6a86dc8-65c5-4ed2-b1c8-37a8e163d3ff"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

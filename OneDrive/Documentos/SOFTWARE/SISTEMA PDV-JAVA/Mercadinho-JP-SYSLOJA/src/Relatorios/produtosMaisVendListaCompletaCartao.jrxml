@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="produtosMaisVendCartao" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="042e1ebf-77be-4c44-a7d3-33281b588343">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="516"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" fontName="Apple Garamond" fontSize="6"/>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_venda_cartao_produto2.`quantidade` AS tbl_venda_cartao_produto2_quantidade,
+     tbl_venda_cartao_produto2.`nome_produto` AS tbl_venda_cartao_produto2_nome_produto,
+     tbl_venda_cartao_produto2.`mes` AS tbl_venda_cartao_produto2_mes,
+     tbl_venda_cartao_produto2.`ano` AS tbl_venda_cartao_produto2_ano,
+     tbl_venda_cartao_produto2.`fk_produto` AS tbl_venda_cartao_produto2_fk_produto
+FROM
+     `tbl_venda_cartao_produto2` tbl_venda_cartao_produto2]]>
+	</queryString>
+	<field name="tbl_venda_cartao_produto2_quantidade" class="java.lang.Integer"/>
+	<field name="tbl_venda_cartao_produto2_nome_produto" class="java.lang.String"/>
+	<field name="tbl_venda_cartao_produto2_mes" class="java.lang.String"/>
+	<field name="tbl_venda_cartao_produto2_ano" class="java.lang.String"/>
+	<field name="tbl_venda_cartao_produto2_fk_produto" class="java.math.BigInteger"/>
+	<title>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement style="style1" x="447" y="0" width="56" height="20" uuid="d93105a8-e083-491d-9db7-217fe6223350"/>
+				<text><![CDATA[Pagina:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="555" height="14" uuid="181df1c1-f5b4-46af-9e75-c9e0eac35eb5"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="504" y="0" width="51" height="20" uuid="68200b83-4fa1-4a3c-9f6b-6afb2e7ad4fe"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="179" y="33" width="299" height="13" uuid="0828fec6-0c00-4627-ba0d-413c2da001a3"/>
+				<text><![CDATA[PRODUTOS MAIS VENDIDOS POR LISTA COMPLETA NA CATEGORIA (CARTÕES DE CRÉDITOS)]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="55" y="0" width="100" height="20" uuid="dcc5c980-a765-4e4f-9aa3-20ef71fe343b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="0" y="0" width="55" height="20" uuid="355c46e0-4ac8-405f-8b73-74e6549abd52"/>
+				<text><![CDATA[Emissor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="43" width="555" height="14" uuid="b6c6c053-6b9b-472a-a48e-c4e1e8f95d56"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement x="89" y="0" width="66" height="13" uuid="a520fe5f-bd2a-431f-9eea-ecf8282797f5"/>
+				<text><![CDATA[DATA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="154" y="0" width="66" height="13" backcolor="#FFFFCC" uuid="83c06b72-6963-4b4e-9c87-ec130ec1b460"/>
+				<text><![CDATA[POSIÇAO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="54" height="13" uuid="deed7fd7-3a7d-4185-9fa7-e0e7121e599f"/>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement style="style1" x="90" y="0" width="65" height="12" uuid="4798921f-b2d0-4c47-8c00-ce919c11ec75"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_cartao_produto2_mes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style1" mode="Opaque" x="155" y="0" width="51" height="12" backcolor="#FFFFCC" uuid="01005aa0-d1c2-4d19-9b45-0ec2b7f9e1ef"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style1" x="220" y="0" width="54" height="12" uuid="a452e52f-98f6-4c84-bae3-6aa27a28a12c"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_cartao_produto2_fk_produto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="274" y="0" width="42" height="12" uuid="04b8379a-ad5f-4066-acda-a2b53c7043f7"/>
+				<text><![CDATA[PRODUTO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="316" y="0" width="131" height="12" uuid="f8729ac7-9c6a-42b5-b36b-b4bafbcdd042"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_cartao_produto2_nome_produto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="447" y="0" width="42" height="12" uuid="7b02290d-5727-467e-8b9f-9b899cdf0a75"/>
+				<text><![CDATA[QUANTIDADE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="489" y="0" width="55" height="12" uuid="dea9a45e-5e0d-4f97-8641-ad047e53062f"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_cartao_produto2_quantidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="15" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="555" height="14" uuid="6101a90a-ba02-4d17-9793-b19fbd9b31cb"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="produtosMaisVendiMesTicket" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="88f2856a-87f4-4d64-a9c7-bff27860fc8c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" fontName="Apple Garamond" fontSize="6"/>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_venda_tickets_produto2.`fk_produto` AS tbl_venda_tickets_produto2_fk_produto,
+     tbl_venda_tickets_produto2.`quantidade` AS tbl_venda_tickets_produto2_quantidade,
+     tbl_venda_tickets_produto2.`nome_produto` AS tbl_venda_tickets_produto2_nome_produto,
+     tbl_venda_tickets_produto2.`ano` AS tbl_venda_tickets_produto2_ano,
+     tbl_venda_tickets_produto2.`mes` AS tbl_venda_tickets_produto2_mes
+FROM
+     `tbl_venda_tickets_produto2` tbl_venda_tickets_produto2]]>
+	</queryString>
+	<field name="tbl_venda_tickets_produto2_fk_produto" class="java.math.BigInteger"/>
+	<field name="tbl_venda_tickets_produto2_quantidade" class="java.lang.Integer"/>
+	<field name="tbl_venda_tickets_produto2_nome_produto" class="java.lang.String"/>
+	<field name="tbl_venda_tickets_produto2_ano" class="java.lang.String"/>
+	<field name="tbl_venda_tickets_produto2_mes" class="java.lang.String"/>
+	<title>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="19" width="555" height="14" uuid="24c018a8-0402-4a86-80f3-4107d2c51a1c"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="56" y="0" width="100" height="20" uuid="5f323bb1-0cab-49b1-825e-82988d6ab91f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="1" y="0" width="55" height="20" uuid="58b0834d-3dca-46b9-bc20-2b196ccfcfcd"/>
+				<text><![CDATA[Emissor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="447" y="0" width="56" height="20" uuid="2e5567cb-cacc-4097-b60a-e528b46e3cad"/>
+				<text><![CDATA[Pagina:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="187" y="33" width="299" height="13" uuid="b20bc684-07ec-4af8-9cef-bb4be99219ad"/>
+				<text><![CDATA[PRODUTOS MAIS VENDIDOS POR MÊS NA CATEGORIA (TICKETS)]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="504" y="0" width="51" height="20" uuid="198de35b-aae0-4fa0-b138-7b3ebcdff005"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="42" width="555" height="14" uuid="67ccc911-7e1e-488c-b312-ef0e6cc6dee2"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="135" y="1" width="66" height="13" backcolor="#FFFFCC" uuid="8565f49c-0366-4d86-93b9-a4f59690acd1"/>
+				<text><![CDATA[POSIÇAO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="1" width="66" height="13" uuid="f7fca110-f8fb-42ed-859b-80128ad49083"/>
+				<text><![CDATA[DATA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="1" width="54" height="13" uuid="14e8fdf8-f79b-45c3-8695-e8edc8ef8177"/>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement style="style1" x="69" y="0" width="57" height="12" uuid="0b39d12a-8d4e-44ad-9ef1-1995cbadf3fe"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_tickets_produto2_mes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style1" x="135" y="0" width="56" height="12" uuid="ada917bb-42b9-4dae-b3bb-a05351a132ff"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style1" x="204" y="0" width="54" height="12" uuid="98e8997a-8abd-4d25-b0ac-ea41344b56dc"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_tickets_produto2_fk_produto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="258" y="0" width="54" height="12" uuid="cbe2ccfa-f2cc-449d-b2f6-0e54f82da24f"/>
+				<text><![CDATA[PRODUTO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="312" y="0" width="117" height="12" uuid="f148be50-e522-418f-a9fd-e48dce076ad9"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_tickets_produto2_nome_produto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="style1" x="429" y="0" width="45" height="12" uuid="ecc68ca3-b188-4cd5-b233-7eec7994dab7"/>
+				<text><![CDATA[QUANTIDADE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="style1" x="474" y="0" width="81" height="12" uuid="5e640302-316c-4536-a396-34b23c1aa12c"/>
+				<textFieldExpression><![CDATA[$F{tbl_venda_tickets_produto2_quantidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="9" width="555" height="14" uuid="1be42d7c-3592-46d5-a949-0cc384633a0a"/>
+				<text><![CDATA[==================================================================================================]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
